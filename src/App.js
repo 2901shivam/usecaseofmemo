@@ -1,23 +1,40 @@
 import logo from './logo.svg';
 import './App.css';
+import Button from './Components/UI/Button';
+import Demo from './Components/Demo/Demo';
+import { useCallback, useState } from 'react';
+
+
+
 
 function App() {
+
+  
+ const[title,setTitle]=useState("list Items");
+
+ const onChangeHandlere=useCallback(()=>{
+  setTitle("New title");
+  // console.log("new")
+ },[])
+
+const descendingOrder=()=>{
+
+}
+
+      
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+     
+   
+   
+    <Demo titles={title} items={[1,3,4,5,2]}/>
+    <Button onClick={onChangeHandlere}>Click me Here</Button>
+
+    {/* <Button onClick={descendingOrder}>DescendingOrder</Button> */}
+   
+
+
     </div>
   );
 }
